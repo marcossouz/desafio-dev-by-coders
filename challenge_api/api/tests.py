@@ -1,7 +1,7 @@
 import pytest
 from datetime import datetime
 from decimal import Decimal
-from .models import CNAB, Transacao
+from api.models import CNAB, Transacao
 from rest_framework.test import APIClient
 
 transacao_obj = {'tipo': 2, 'descricao': 'Boleto', 'natureza': 'Saída', 'sinal': '-'}
