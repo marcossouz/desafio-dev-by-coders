@@ -3,17 +3,29 @@
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+
 }
 
 .title {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin: 5px;
     padding: 8px;
     font-size: 20px;
     background-color: #dfd;
+}
+
+.title button {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #22ffff;
+}
+
+.title button:hover {
+    background-color: #22dddf;
 }
 
 .loja {
@@ -43,8 +55,7 @@
     align-items: center;
     background-color: beige;
     padding: 15px;
-    border: 1px solid #333;
-    margin: 0 30vw 0 30vw;
+    border-radius: 5px;
 }
 
 .tableLoja th {

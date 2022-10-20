@@ -1,5 +1,6 @@
 import styles from '../styles/Transacao.module.css'
 import Head from 'next/head'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 export default function Home() {
@@ -49,8 +50,7 @@ export default function Home() {
         />
       </Head>
       <div className={styles.container}>
-        
-        <div className={styles.title}>Challenge bycoders_</div>
+        <div className={styles.title}>Challenge bycoders_ <Link href='importacao'><button>Importar Dados</button></Link></div>
         <div className={styles.loja}>
           <label>LOJA: </label>
           <select onChange={(e) => carregar_transacoes(e.target.value)}>
