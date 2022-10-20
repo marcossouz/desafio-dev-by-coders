@@ -1,0 +1,96 @@
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    padding: 8px;
+    font-size: 20px;
+    background-color: #dfd;
+}
+
+.loja {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    font-size: large;
+
+}
+
+.loja label {
+    margin-left: 10px;
+    margin-right: 18px;
+}
+
+.loja select {
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 150px;
+}
+
+.tableLoja {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+    padding: 15px;
+    border: 1px solid #333;
+    margin: 0 30vw 0 30vw;
+}
+
+.tableLoja th {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 2px;
+}
+
+.transacoes {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.transacoes tbody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.transacoes tr {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.transacoes th {
+    width: 12vw;
+}
+
+.transacoes td {
+    width: 12vw;
+    text-align: center;
+}
+
+.positivo {
+    background-color: #2f2;
+}
+
+
+.negativo {
+    background-color: #faa;
+}
