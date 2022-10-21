@@ -8,10 +8,10 @@ Tabela de conteúdos
 =================
 
 * [Sobre](#sobre)
-* [Pre Requisitos](#pre-requisitos)
+* [Pre Requisitos](#pré-requisitos)
     * [Com Docker](#rodar-com-docker-compose)
     * [Em Localhost](#rodar-em-localhost)
-* [Instalação](#instalção)
+* [Instalação](#instalação)
 * [Snapshots](#snapshots)
 * [Endpoints](#endpoints)
 * [Tests](#testes)
