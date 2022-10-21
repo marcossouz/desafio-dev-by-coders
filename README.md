@@ -52,6 +52,9 @@ $ git clone <https://github.com/marcossouz/desafio-dev-by-coders>
 # Acesse a pasta do projeto no terminal/cmd
 $ cd desafio-dev-by-coders
 
+# Criar arquivo .env
+$ cp .env.local .env
+
 # Construir containers e baixar imagens
 $ docker compose up -d
 
