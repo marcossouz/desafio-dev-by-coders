@@ -1,85 +1,101 @@
-# Desafio programação - para vaga desenvolvedor
+# Challenge bycoders_
 
-Por favor leiam este documento do começo ao fim, com muita atenção.
-O intuito deste teste é avaliar seus conhecimentos técnicos em programação.
-O teste consiste em parsear [este arquivo de texto(CNAB)](https://github.com/ByCodersTec/desafio-ruby-on-rails/blob/master/CNAB.txt) e salvar suas informações(transações financeiras) em uma base de dados a critério do candidato.
-Este desafio deve ser feito por você em sua casa. Gaste o tempo que você quiser, porém normalmente você não deve precisar de mais do que algumas horas.
+### O desafio consiste em fazer upload de um arquivo CNAB com os dados das movimentações finanaceira de várias lojas e exibir esses dados em outra tela. mais detalhes no arquivo "Instruções.md"
 
-# Instruções de entrega do desafio
+<br>
 
-1. Primeiro, faça um fork deste projeto para sua conta no Github (crie uma se você não possuir).
-2. Em seguida, implemente o projeto tal qual descrito abaixo, em seu clone local.
-3. Por fim, envie via email o projeto ou o fork/link do projeto para seu contato Bycoders_ com cópia para rh@bycoders.com.br.
+Tabela de conteúdos
+=================
 
-# Descrição do projeto
+* [Sobre](#Sobre)
+* [Pre Requisitos](#pre-requisitos)
+    * [Com Docker](#rodar-com-docker-compose)
+    * [Em Localhost](#rodar-em-localhost)
+* [Instalação](#instalacao)
+* [Snapshots](#snapshots)
+* [Endpoints](#endpoints)
+* [Tests](#testes)
+    * [Frontend](#frontend)
+    * [Backend](#backend)
+* [Tecnologias](#tecnologias)
 
-Você recebeu um arquivo CNAB com os dados das movimentações finanaceira de várias lojas.
-Precisamos criar uma maneira para que estes dados sejam importados para um banco de dados.
 
-Sua tarefa é criar uma interface web que aceite upload do [arquivo CNAB](https://github.com/ByCodersTec/desafio-ruby-on-rails/blob/master/CNAB.txt), normalize os dados e armazene-os em um banco de dados relacional e exiba essas informações em tela.
+## Sobre
 
-**Sua aplicação web DEVE:**
+Desafio solicitado por Bianca Santos (bycoders_) em 19/10/2022. O intuito é construir uma aplicação que consiga demonstrar minhas habilidades envolvendo vários níveis de complexidade de diferentes áreas de desenvolvimento. Partindo do backend com rest, passando pelo frontend com documentação e testes, até chegar em devops com docker-compose.
 
-1. Ter uma tela (via um formulário) para fazer o upload do arquivo(pontos extras se não usar um popular CSS Framework )
-2. Interpretar ("parsear") o arquivo recebido, normalizar os dados, e salvar corretamente a informação em um banco de dados relacional, **se atente as documentações** que estão logo abaixo.
-3. Exibir uma lista das operações importadas por lojas, e nesta lista deve conter um totalizador do saldo em conta
-4. Ser escrita na sua linguagem de programação de preferência
-5. Ser simples de configurar e rodar, funcionando em ambiente compatível com Unix (Linux ou Mac OS X). Ela deve utilizar apenas linguagens e bibliotecas livres ou gratuitas.
-6. Git com commits atomicos e bem descritos
-7. PostgreSQL, MySQL ou SQL Server
-8. Ter testes automatizados
-9. Docker compose (Pontos extras se utilizar)
-10. Readme file descrevendo bem o projeto e seu setup
-11. Incluir informação descrevendo como consumir o endpoint da API
+## Pré-requisitos
 
-**Sua aplicação web não precisa:**
+### Rodar com docker-compose
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 
-1. Lidar com autenticação ou autorização (pontos extras se ela fizer, mais pontos extras se a autenticação for feita via OAuth).
-2. Ser escrita usando algum framework específico (mas não há nada errado em usá-los também, use o que achar melhor).
-3. Documentação da api.(Será um diferencial e pontos extras se fizer)
+- <a href="https://docs.docker.com/engine/install/">Docker Engine (versão utilizada: Docker Desktop 4.12.0)</a>
+- <a href="https://docs.docker.com/compose/install/">Docker Compose (versão utilizada: v2.10.2)</a>
 
-# Documentação do CNAB
+### Rodar em localhost
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 
-| Descrição do campo  | Inicio | Fim | Tamanho | Comentário
-| ------------- | ------------- | -----| ---- | ------
-| Tipo  | 1  | 1 | 1 | Tipo da transação
-| Data  | 2  | 9 | 8 | Data da ocorrência
-| Valor | 10 | 19 | 10 | Valor da movimentação. *Obs.* O valor encontrado no arquivo precisa ser divido por cem(valor / 100.00) para normalizá-lo.
-| CPF | 20 | 30 | 11 | CPF do beneficiário
-| Cartão | 31 | 42 | 12 | Cartão utilizado na transação 
-| Hora  | 43 | 48 | 6 | Hora da ocorrência atendendo ao fuso de UTC-3
-| Dono da loja | 49 | 62 | 14 | Nome do representante da loja
-| Nome loja | 63 | 81 | 19 | Nome da loja
+- <a href="https://www.python.org/downloads/">Python v3.9</a>
+- <a href="https://nodejs.org/en/download/">Node v16</a>
+- <a href="https://www.postgresql.org/download/">Postgres v14</a>
 
-# Documentação sobre os tipos das transações
 
-| Tipo | Descrição | Natureza | Sinal |
-| ---- | -------- | --------- | ----- |
-| 1 | Débito | Entrada | + |
-| 2 | Boleto | Saída | - |
-| 3 | Financiamento | Saída | - |
-| 4 | Crédito | Entrada | + |
-| 5 | Recebimento Empréstimo | Entrada | + |
-| 6 | Vendas | Entrada | + |
-| 7 | Recebimento TED | Entrada | + |
-| 8 | Recebimento DOC | Entrada | + |
-| 9 | Aluguel | Saída | - |
+## Instalação
 
-# Avaliação
+> Obs.: Em carater de simplificação, vou seguir com a documentação para instalação utilizando docker-compose
 
-Seu projeto será avaliado de acordo com os seguintes critérios.
 
-1. Sua aplicação preenche os requerimentos básicos?
-2. Você documentou a maneira de configurar o ambiente e rodar sua aplicação?
-3. Você seguiu as instruções de envio do desafio?
-4. Qualidade e cobertura dos testes unitários.
+```bash
+# Clone este repositório
+$ git clone <https://github.com/marcossouz/desafio-dev-by-coders>
 
-Adicionalmente, tentaremos verificar a sua familiarização com as bibliotecas padrões (standard libs), bem como sua experiência com programação orientada a objetos a partir da estrutura de seu projeto.
+# Acesse a pasta do projeto no terminal/cmd
+$ cd desafio-dev-by-coders
 
-# Referência
+# Construir containers e baixar imagens
+$ docker compose up -d
 
-Este desafio foi baseado neste outro desafio: https://github.com/lschallenges/data-engineering
+```
+> Obs.: Deve-se aguardar cerca de 2 minutos até o banco de dados fique totalmente disponível e a api conecte ao banco de dados.
 
----
+## Snapshots
 
-Boa sorte!
+## Endpoints
+
+## Testes
+
+### Frontend
+
+Os testes de frontend foram construídos com cypress
+
+para executá-los:
+```
+$ cd challenge_app
+$ yarn cypress run
+```
+
+### Backend
+
+Os testes de backend foramcontruídos com pytest
+para executá-los:
+```
+$ cd challenge_api
+$ pytest
+```
+
+## 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Python](https://www.python.org/downloads/)
+- [Django](https://www.djangoproject.com/download/)
+- [Django Rest Framework](https://www.django-rest-framework.org/)
+- [Next.Js](https://nextjs.org/)
+- [Fetch Api](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- [Docker](https://www.docker.com/)
+- [docker-compose](https://docs.docker.com/compose/)
+- [Yarn](https://yarnpkg.com/)
+- [Swagger](https://swagger.io/)
+- [cypress](https://www.cypress.io/)
+- [pytest](https://docs.pytest.org/en/7.1.x/)
+- [postgres](https://www.postgresql.org/)

@@ -1,5 +1,5 @@
-describe('empty spec', () => {
-  it('passes', () => {
+describe('Testes da listagem', () => {
+  it('listagem', () => {
     cy.visit('http://localhost:3000/')
 
     cy.get('label').contains('LOJA:')
@@ -10,6 +10,8 @@ describe('empty spec', () => {
 
     cy.get('.Transacao_transacoes__Hl6_Q > tbody > :nth-child(1) > :nth-child(1)').contains('Tipo')
 
+  })
+  it('importação', () => {
     cy.get('button').click()
 
     cy.url().should('include', '/importacao')

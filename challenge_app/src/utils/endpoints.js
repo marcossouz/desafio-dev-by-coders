@@ -1,0 +1,1 @@
+export const url_cnab_api = 'http://localhost:8000/cnab/'

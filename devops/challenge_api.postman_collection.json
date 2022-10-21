@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "a155e080-6433-4f68-8b0e-04181f5ba1de",
+		"name": "challenge_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12239081"
+	},
+	"item": [
+		{
+			"name": "challenge",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8000/cnab/?loja=all",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"cnab",
+						""
+					],
+					"query": [
+						{
+							"key": "loja",
+							"value": "MERCADO DA AVENIDA",
+							"disabled": true
+						},
+						{
+							"key": "loja",
+							"value": "all"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "challenge create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/marcossouza/workspace/projects/desafio-dev-by-coders/CNAB.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/cnab/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"cnab",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transacao",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/transacao/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"transacao",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

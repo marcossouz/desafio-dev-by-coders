@@ -2,6 +2,7 @@ import styles from '../styles/Transacao.module.css'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { url_cnab_api } from '../utils/endpoints'
 
 export default function Home() {
   const [lojas, setLojas] = useState([])
@@ -9,7 +10,7 @@ export default function Home() {
   const [transacoes, setTransacoes] = useState([])
 
   function carregar_lojas() {
-    fetch('http://localhost:8000/cnab/?loja=all')
+    fetch(`${url_cnab_api}?loja=all`)
       .then(res => res.json())
       .then(res => {
         setLojas(res.results)
@@ -19,7 +20,7 @@ export default function Home() {
   }
 
   function carregar_transacoes(loja) {
-    fetch(`http://localhost:8000/cnab/?loja=${loja}`)
+    fetch(`${url_cnab_api}?loja=${loja}`)
       .then(res => res.json())
       .then(res => {
         setTransacoes(res.results)
@@ -43,11 +44,6 @@ export default function Home() {
     <div>
       <Head>
         <title>Challenge</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter&display=optional"
-          rel="stylesheet"
-        />
       </Head>
       <div className={styles.container}>
         <div className={styles.title}>Challenge bycoders_ <Link href='importacao'><button>Importar Dados</button></Link></div>

@@ -2,6 +2,7 @@ import styles from '../styles/Importacao.module.css'
 import Link from 'next/link'
 import { useState } from 'react'
 import FormData from 'form-data'
+import { url_cnab_api } from '../utils/endpoints'
 
 export default function Home() {
     const [file, setFile] = useState(null)
@@ -21,7 +22,7 @@ export default function Home() {
         setActive(true)
         const formData = new FormData()
         formData.append('file', file)
-        fetch('http://localhost:8000/cnab/', {
+        fetch(`${url_cnab_api}`, {
            method: 'POST',
             body: formData
         })
@@ -32,7 +33,7 @@ export default function Home() {
                 setStatus(400)
             } else {
                 setStatus(200)
-                setMsg('Arquivo enviando com sucesso. Adicionamos ao banco de dados o você envio de novidade ;)')
+                setMsg('Arquivo enviando com sucesso. Adicionamos ao banco de dados o que você enviou de novidade ;)')
             }
             setActive(false)
         })
