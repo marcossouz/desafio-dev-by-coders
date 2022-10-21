@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  db:
+    build:
+      context: .
+      dockerfile: ./devops/Dockerfile.db
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=challenge_db
+      - POSTGRES_USER=local
+      - POSTGRES_PASSWORD=local
+    expose:
+      - 5432
+    networks:
+      - network-db
+  backend:
+    build: ./challenge_api
+    restart: unless-stopped
+    ports:
+      - '8000:8000'
+    env_file:
+      - ./challenge_api/.env
+    networks:
+      - network-db
+    volumes:
+      - ./challenge_api:/api
+    depends_on:
+      - db
+  frontend:
+    build: ./challenge_app
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./challenge_app:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - backend
+
+networks:
+  network-db:

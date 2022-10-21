@@ -1,0 +1,3 @@
+FROM postgres
+
+ADD ./devops/challenge_api-dump.sql /docker-entrypoint-initdb.d
