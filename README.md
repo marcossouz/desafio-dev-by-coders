@@ -7,11 +7,11 @@
 Tabela de conteúdos
 =================
 
-* [Sobre](#Sobre)
+* [Sobre](#sobre)
 * [Pre Requisitos](#pre-requisitos)
     * [Com Docker](#rodar-com-docker-compose)
     * [Em Localhost](#rodar-em-localhost)
-* [Instalação](#instalacao)
+* [Instalação](#instalção)
 * [Snapshots](#snapshots)
 * [Endpoints](#endpoints)
 * [Tests](#testes)
@@ -83,7 +83,7 @@ $ cd challenge_api
 $ pytest
 ```
 
-## 🛠 Tecnologias
+## Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
