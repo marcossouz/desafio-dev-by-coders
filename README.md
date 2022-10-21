@@ -64,8 +64,6 @@ $ docker compose up -d
 
 ## Snapshots
 
-### Importação
-
 #### Listagem de transação por loja
 ![Listagem de transação por loja](https://user-images.githubusercontent.com/18218791/197261102-1a78f8f7-35c6-426a-a231-025cc94822a5.png)
 

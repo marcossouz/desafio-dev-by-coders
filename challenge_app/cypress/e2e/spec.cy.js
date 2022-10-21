@@ -1,4 +1,4 @@
-describe('Testes da listagem', () => {
+describe('Testes', () => {
   it('listagem', () => {
     cy.visit('http://localhost:3000/')
 
