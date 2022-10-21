@@ -60,10 +60,39 @@ $ docker compose up -d
 
 ```
 > Obs.: Deve-se aguardar cerca de 2 minutos até o banco de dados fique totalmente disponível e a api conecte ao banco de dados.
+> Obs_2.: Adicionei apenas 1 transação de cada loja no dump para possibilitar testes de importação com o sistema rodando.
 
 ## Snapshots
 
+### Importação
+
+#### Listagem de transação por loja
+![Listagem de transação por loja](https://user-images.githubusercontent.com/18218791/197261102-1a78f8f7-35c6-426a-a231-025cc94822a5.png)
+
+#### Arquivo selecionado
+![Arquivo Selecionado](https://user-images.githubusercontent.com/18218791/197260730-21a5bccc-e8f7-49ce-ac1a-cf9fb84af0aa.png)
+
+#### Upload de arquivo realizado
+![Upload Realizado](https://user-images.githubusercontent.com/18218791/197260846-652e4583-90b8-4a33-b729-6e020ad718d5.png)
+
 ## Endpoints
+
+- Para melhor utilização da api, foi disponibilizado a documentação nos endpoints:
+   - `http://localhost:8000/swagger/`
+   ![Swagger](https://user-images.githubusercontent.com/18218791/197261820-89d4d039-3e98-4b55-bd58-347ebb67c22a.png)
+   
+   - `http://localhost:8000/redoc/`
+   ![redoc](https://user-images.githubusercontent.com/18218791/197261957-d0bd9e73-3453-43a9-b43b-ae7a9686b7cd.png)
+
+   - > Para facilitar a reprodução do uso da api, também foi disponibilizado o arquivo exportado do postman:
+     - > `devops/challenge_api.postman_collection.json`
+
+ - Endpoints da api
+   - `http://localhost:8000/cnab/`
+   - `http://localhost:8000/transacao/`
+
+- Aplicação
+   - `http://localhost:3000/`
 
 ## Testes
 
@@ -72,10 +101,26 @@ $ docker compose up -d
 Os testes de frontend foram construídos com cypress
 
 para executá-los:
+
+- Em 1 terminal execute: 
+```
+$ cd challenge_app
+$ yarn install
+$ yarn dev
+```
+
+- Em outro terminal em paralelo execute:
 ```
 $ cd challenge_app
 $ yarn cypress run
 ```
+
+### cypress run
+![cypress run](https://user-images.githubusercontent.com/18218791/197264753-ac9a4961-82cb-435c-ab2f-b2b1e414bb63.png)
+
+### cypress open
+![cypress](https://user-images.githubusercontent.com/18218791/197263944-f6cf5808-ebbb-4a43-8d7c-04d05ce3ceba.png)
+
 
 ### Backend
 
@@ -85,6 +130,9 @@ para executá-los:
 $ cd challenge_api
 $ pytest
 ```
+### Pytest
+![pytest](https://user-images.githubusercontent.com/18218791/197265355-f71c28fa-a569-4afb-868e-6118f7e57f54.png)
+
 
 ## Tecnologias
 
